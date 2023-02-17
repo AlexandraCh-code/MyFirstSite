@@ -47,16 +47,24 @@ z-index: 2;
   transform: translate3d(0, calc(var(--scrollTop)/1.6), 0);
   z-index: 0;
 }
-.layers__title {
+.layers__middle {
   transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
 }
 .layers__front {
-  transform: translate3d(0, calc(var(--scrollTop)/1.6) 0);
+  transform: translate3d(0, calc(var(--scrollTop)/5.7) 0);
 }
 
 .layer__header {
   z-index: 1;
   transform: translate3d(0, calc(var(--scrollTop)/2), 0);
+}
+
+.layers__title {
+  transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
+}
+
+.layers__caption  {
+  transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
 }
 
 .main-article{
