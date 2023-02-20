@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 :root {
-
+  --index: calc(1vw + 1vh);
+  --text: #e7e7e0;
 }
 @font-face {
   font-family: raleway_f;
@@ -24,6 +25,18 @@ body {
 .main-header {
   position: relative;
 }
+.main-header::after {
+  content: '';
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: calc(var(--index)*49);
+  background-image: url(../img/zemlya.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: calc(var(--index)*-18.7);
+  }
 .layers {
   height: 100vh;
   display: flex;
@@ -42,7 +55,6 @@ background-position: center;
 will-change: transform;
 z-index: 2;
 }
-
 .layers__base {
   transform: translate3d(0, calc(var(--scrollTop)/1.6), 0);
   z-index: 0;
@@ -53,21 +65,66 @@ z-index: 2;
 .layers__front {
   transform: translate3d(0, calc(var(--scrollTop)/5.7) 0);
 }
-
 .layer__header {
   z-index: 1;
   transform: translate3d(0, calc(var(--scrollTop)/2), 0);
-}
-
-.layers__title {
+  will-change: transform;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--text);
+  text-shadow: 0 0 15px #8d6d29;
+  }
+  .layers__title {
   transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
-}
-
-.layers__caption  {
+  font-size: calc(var(--index) * 2.5);
+  letter-spacing: calc(var(--index) /2.25);
+  color: #e7e7e0;
+  text-shadow: 0 0 15px #8d6d29;
+  }
+  .layers__caption {
   transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
+  font-size: calc(var(--index) *2 );
+  letter-spacing: calc(var(--index) /3.5);
+  color: #e7e7e0;
+  text-shadow: 0 0 15px #8d6d29;
+  }
+  .main-article {
+    --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+    min-height: 147vh;
+    background-size: cover;
+    background-position: center;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    top: -1px;
+    z-index: 10;
 }
-
-.main-article{
-  min-height: 100vh;
+.main-article__header {
+  text-transform: uppercase;
+  font-size: calc(var(--index) *1.8);
+  letter-spacing: calc(var(--index) /7.5);
+  transform: var(--main-article-transform);
+  will-change: transform;
+  color: #e7e7e0;
+  text-shadow: 0 0 15px #8d6d29;
 }
-
+.main-article__paragraph {
+  max-width: calc(var(--index) * 30);
+  font-size: calc(var(--index) * .9);
+  margin-top: calc(var(--index) / 1.25);
+  transform: var(--main-article-transform);
+  will-change: transform;
+  letter-spacing: calc(var(--index) /3.5);
+  color: #e7e7e0;
+  text-shadow: 0 0 15px #8d6d29;
+}
+.copy {
+  position: absolute;
+  bottom: calc(var(--index) * 2.5);
+  opacity: .45;
+  font-size: calc(var(--index) * .75);
+  letter-spacing: calc(var(--index) / 35);
+}
